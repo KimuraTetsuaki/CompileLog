@@ -114,8 +114,7 @@ optional arguments:
   --add-resource RESOURCES
                         Put this in the res folder in the apk.
   --private PRIVATE     the directory with the app source code files
-                        (containing your main.py entrypoint)
-  --use-setup-py        Process the setup.py of a project if present.
+                        (containing your main.py entrypoint)  --use-setup-py        Process the setup.py of a project if present.
                         (Experimental!
   --ignore-setup-py     Don't run the setup.py of a project if present. This
                         may be required if the setup.py is not designed to
@@ -152,11 +151,10 @@ optional arguments:
 [WARNING]: Please report any issues to the python-for-android issue tracker.
 [WARNING]: prerequisites.py is experimental and does not support all prerequisites yet.
 [WARNING]: Please report any issues to the python-for-android issue tracker.
-[INFO]:    Will compile for the following archs: arm64-v8a, armeabi-v7a
+[INFO]:    Will compile for the following archs: armeabi-v7a, arm64-v8a
 [INFO]:    Found Android API target in $ANDROIDAPI: 31
 [INFO]:    Available Android APIs are (31)
-[INFO]:    Requested API target 31 is available, continuing.
-[INFO]:    Found NDK dir in $ANDROIDNDK: /home/kouzimiso/.buildozer/android/platform/android-ndk-r25b
+[INFO]:    Requested API target 31 is available, continuing.[INFO]:    Found NDK dir in $ANDROIDNDK: /home/kouzimiso/.buildozer/android/platform/android-ndk-r25b
 [INFO]:    Found NDK version 25b
 [INFO]:    Getting NDK API version (i.e. minimum supported API) from user argument
 [DEBUG]:   All possible dists: [<Distribution: name myapp with recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3)>]
@@ -165,10 +163,11 @@ optional arguments:
 [INFO]:    Of the existing distributions, the following meet the given requirements:
 [INFO]:         myapp: min API 21, includes recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3), built for archs (arm64-v8a, armeabi-v7a)
 [INFO]:    myapp has compatible recipes, using this one
-# Build the application #2
+# Build the application #3
 # Copy application source from /home/kouzimiso
 # Remove directory and subdirectory /home/kouzimiso/.buildozer/android/app
 # Create directory /home/kouzimiso/.buildozer/android/app
+# Copy /home/kouzimiso/main.py to /home/kouzimiso/.buildozer/android/app/main.py
 # Copy /home/kouzimiso/wsl to /home/kouzimiso/.buildozer/android/app/wsl
 # Copy /home/kouzimiso/test.py to /home/kouzimiso/.buildozer/android/app/test.py
 # Create directory /home/kouzimiso/.buildozer/android/app/calculator
@@ -184,11 +183,10 @@ optional arguments:
 [WARNING]: Please report any issues to the python-for-android issue tracker.
 [WARNING]: prerequisites.py is experimental and does not support all prerequisites yet.
 [WARNING]: Please report any issues to the python-for-android issue tracker.
-[INFO]:    Will compile for the following archs: arm64-v8a, armeabi-v7a
+[INFO]:    Will compile for the following archs: armeabi-v7a, arm64-v8a
 [INFO]:    Found Android API target in $ANDROIDAPI: 31
 [INFO]:    Available Android APIs are (31)
-[INFO]:    Requested API target 31 is available, continuing.
-[INFO]:    Found NDK dir in $ANDROIDNDK: /home/kouzimiso/.buildozer/android/platform/android-ndk-r25b
+[INFO]:    Requested API target 31 is available, continuing.[INFO]:    Found NDK dir in $ANDROIDNDK: /home/kouzimiso/.buildozer/android/platform/android-ndk-r25b
 [INFO]:    Found NDK version 25b
 [INFO]:    Getting NDK API version (i.e. minimum supported API) from user argument
 [DEBUG]:   All possible dists: [<Distribution: name myapp with recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3)>]
@@ -206,63 +204,100 @@ optional arguments:
 [INFO]:    -> directory context /home/kouzimiso/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2
 [INFO]:    <- directory context /home/kouzimiso/.buildozer/android/platform/python-for-android
 [INFO]:    -> directory context /home/kouzimiso/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/dists/myapp
-BUILD FAILURE: No main.py(c) found in your app directory. This
-file must exist to act as the entry point for you app. If your app is
-started by a file with a different name, rename it to main.py or add a
-main.py that loads it.
-# Command failed: ('/usr/bin/python3', '-m', 'pythonforandroid.toolchain', 'apk', '--bootstrap', 'sdl2', '--dist_name', 'myapp', '--name', 'My Application', '--version', '0.1', '--package', 'org.test.myapp', '--minsdk', '21', '--ndk-api', '21', '--private', '/home/kouzimiso/.buildozer/android/app', '--permission', 'android.permission.INTERNET', '--permission', 'READ_EXTERNAL_STORAGE', '--android-entrypoint', 'org.kivy.android.PythonActivity', '--android-apptheme', '@android:style/Theme.NoTitleBar', '--orientation', 'portrait', '--window', '--enable-androidx', '--copy-libs', '--arch', 'arm64-v8a', '--arch', 'armeabi-v7a', '--color=always', '--storage-dir=/home/kouzimiso/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a', '--ndk-api=21', '--ignore-setup-py', '--debug')
-# Error code: 1
-# ENVIRONMENT:
-#     SHELL = '/bin/bash'
-#     WSL2_GUI_APPS_ENABLED = '1'
-#     WSL_DISTRO_NAME = 'Ubuntu-20.04'
-#     NAME = 'DESKTOP-RAFM420'
-#     PWD = '/home/kouzimiso'
-#     PYENV_VIRTUALENV_INIT = '1'
-#     LOGNAME = 'kouzimiso'
-#     MOTD_SHOWN = 'update-motd'
-#     HOME = '/home/kouzimiso'
-#     LANG = 'C.UTF-8'
-#     WSL_INTEROP = '/run/WSL/641_interop'
-#     WAYLAND_DISPLAY = 'wayland-0'
-#     TERM = 'xterm-256color'
-#     USER = 'kouzimiso'
-#     DISPLAY = 'localhost:0.0'
-#     SHLVL = '1'
-#     XDG_RUNTIME_DIR = '/run/user/1000/'
-#     PYENV_ROOT = '/home/kouzimiso/.pyenv'
-#     WSLENV = ''
-#     XDG_DATA_DIRS = '/usr/local/share:/usr/share:/var/lib/snapd/desktop'
-#     PATH = ('/home/kouzimiso/.buildozer/android/platform/apache-ant-1.9.4/bin:/home/kouzimiso/.pyenv/plugins/pyenv-virtualenv/shims:/home/kouzimiso/.pyenv/shims:/home/kouzimiso/.pyenv/bin:/home/kouzimiso/.pyenv/plugins/pyenv-virtualenv/shims:/home/kouzimiso/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program '
- 'Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04LTS_2004.6.16.0_x64__79rhkp1fndgsc:/mnt/c/Program '
- 'Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files '
- '(x86)/Embarcadero/Studio/21.0/bin:/mnt/c/Users/Public/Documents/Embarcadero/Studio/21.0/Bpl:/mnt/c/Program '
- 'Files '
- '(x86)/Embarcadero/Studio/21.0/bin64:/mnt/c/Users/Public/Documents/Embarcadero/Studio/21.0/Bpl/Win64:/mnt/c/Program '
- 'Files (x86)/VMware/VMware '
- 'Player/bin/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program '
- 'Files/dotnet/:/mnt/c/Program Files/Microsoft SQL '
- 'Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client '
- 'SDK/ODBC/170/Tools/Binn/:/mnt/c/platform-tools/:/mnt/c/Program Files '
- '(x86)/Nox/bin:/mnt/c/Program '
- 'Files/Docker/Docker/resources/bin:/mnt/c/Users/kouzi/AppData/Roaming/nvm:/mnt/c/Program '
- 'Files/nodejs:/mnt/c/Program '
- 'Files/Git/cmd:/mnt/c/Users/kouzi/AppData/Roaming/nvm:/mnt/c/Program '
- 'Files/nodejs:/mnt/c/Users/kouzi/AppData/Roaming/nvm:/mnt/c/Program '
- 'Files/nodejs:/mnt/c/Users/Public/Documents/Embar:/mnt/c/Users/kouzi/AppData/Local/Programs/Microsoft '
- 'VS Code Insiders/bin:/snap/bin:/home/kouzimiso/.local/bin/')
-#     DBUS_SESSION_BUS_ADDRESS = 'unix:path=/run/user/1000/bus'
-#     HOSTTYPE = 'x86_64'
-#     PULSE_SERVER = 'unix:/mnt/wslg/PulseServer'
-#     _ = '/home/kouzimiso/.local/bin/buildozer'
-#     PACKAGES_PATH = '/home/kouzimiso/.buildozer/android/packages'
-#     ANDROIDSDK = '/home/kouzimiso/.buildozer/android/platform/android-sdk'
-#     ANDROIDNDK = '/home/kouzimiso/.buildozer/android/platform/android-ndk-r25b'
-#     ANDROIDAPI = '31'
-#     ANDROIDMINAPI = '21'
-#
-# Buildozer failed to execute the last command
-# The error might be hidden in the log above this error
-# Please read the full log, and search for it before
-# raising an issue with buildozer itself.
-# In case of a bug report, please add a full log with log_level = 2
+[DEBUG]:   Remove directory and subdirectory src/main/assets[DEBUG]:   Create directory src/main/assets
+Compiling '/home/kouzimiso/.buildozer/android/app/main.py'...
+Compiling '/home/kouzimiso/.buildozer/android/app/sitecustomize.py'...
+Compiling '/home/kouzimiso/.buildozer/android/app/test.py'...
+Compiling '/home/kouzimiso/.buildozer/android/app/calculator/calculator.py'...
+[DEBUG]:   Remove directory and subdirectory /tmp/p4a-extra-env-lp85ghfb
+[INFO]:    Detected highest available build tools version to be 34.0.0
+[DEBUG]:   -> running gradlew clean assembleDebug
+[DEBUG]:        Downloading https://services.gradle.org/distributions/gradle-7.4.1-all.zip
+[DEBUG]:        .............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+[DEBUG]:        Unzipping /home/kouzimiso/.gradle/wrapper/dists/gradle-7.4.1-all/8bevta3mh7872g50ecurigeld/gradle-7.4.1-all.zip to /home/kouzimiso/.gradle/wrapper/dists/gradle-7.4.1-all/8bevta3mh7872g50ecurigeld
+[DEBUG]:        Set executable permissions for: /home/kouzimiso/.gradle/wrapper/dists/gradle-7.4.1-all/8bevta3mh7872g50ecurigeld/gradle-7.4.1/bin/gradle
+[DEBUG]:
+[DEBUG]:        Welcome to Gradle 7.4.1!
+[DEBUG]:
+[DEBUG]:        Here are the highlights of this release:
+[DEBUG]:         - Aggregated test and JaCoCo reports
+[DEBUG]:         - Marking additional test source directories as tests in IntelliJ
+[DEBUG]:         - Support for Adoptium JDKs in Java toolchains
+[DEBUG]:
+[DEBUG]:        For more details see https://docs.gradle.org/7.4.1/release-notes.html
+[DEBUG]:
+[DEBUG]:        Starting a Gradle Daemon (subsequent builds will be faster)
+<-------------> 0% CONFIGURING [11s]ONFIGURING [8s]
+> root project >> root project > Resolve dependencies of :classpath > layoutlib-api-30.1.2.pom
+> root project > Resolve dependencies of :classpath > builde<-------------> 0% CONFIGURING [12s]
+> root project > Resolve dependencies of :classpath > shared-30.1.2.pom
+> root project > Resolve dependencies of :classpath > commons-io-2.4.pom0-depre
+> root project > Resolve dependencies of :classpath > jaxb-runtime-parent-2.3.2
+> root project > Resolve dependencies of :classpath > aaptco> root project > Resolve dependencies of :classpath > ow2-1.5.pom
+> root project > Resolve dependencies of :classpath > androi<-------------> 0% CONFIGURING [13s]
+> root project > Resolve dependencies of :classpath > httpmime-4.5.6.pom7984345
+> root project > Resolve dependencies of :classpath > httpmime-4.5.6.pom > 2 Kisolve dependencies of :classpath > ow2-1.> root project > Resolve dependencies of :classpath > bundle> root project > Resolve dependencies of :classpath > httpcomponents-client-4.5solve dependencies of :classpath > jaxb-b> root project > Resolve dependencies of :classpath > gson-parent-2.8.6.pom> Resolve dependencies of :classpath > protob> root project > Resolve dependencies of :classpath > httpco> root project > Resolve dependencies of :classpath > apache-18.pom
+> IDLE
+> root project > Resolve dependencies of :classpath > databi> root project > Resolve dependencies of :classpath > sdklib-30.1.2.pomect > Resolve dependencies of :classpath > protob> root project > Resolve dependencies of :classpath > baseLi<-------------> 0% CONFIGURING [14s]s of :classpath > sdklib> root project > Resolve dependencies of :classpath > bcprov-jdk15on-1.56.pom
+> root project > Resolve dependencies of :classpath > xercesImpl-2.12.0.pom
+> IDLE
+<-------------> 0% CONFIGURING [16s]
+> root project > Resolve dependencies of :classpath > istack-commons-runtime-3.solve dependencies of :classpath > common> IDLE
+> root project > Resolve dependencies of :classpath > jakarta.xml.bind-api-paresolve dependencies of :classpath > jakart> root project > Resolve dependencies of :classpath > auto-v<-------------> 0% CONFIGURING [17s]
+> IDLE
+> root project > Resolve dependencies of :classpath > slf4j-> root project > Resolve dependencies of :classpath > opence<-------------> 0% CONFIGURING [18s]
+> root project > Resolve dependencies of :classpath > annota> IDLE
+<-------------> 0% CONFIGURING [19s]s of :classpath > kotlin> root project > Resolve dependencies of :classpath > apksig-7.1.2.pom
+> root project > Resolve dependencies of :classpath > manifest-merger-30.1.2.po
+> root project > Resolve dependencies of :classpath > apkzlib-7.1.2.pompom > Resolve dependencies of :classpath > proto-> root project > Resolve dependencies of :classpath > apksig> IDLE
+> root project > Resolve dependencies of :classpath > listen<-------------> 0% CONFIGURING [21s]s of :classpath > apache> root project > Resolve dependencies of :classpath > netty-codec-4.1.34.Final.
+> root project > Resolve dependencies of :classpath > stax2-<-------------> 0% CONFIGURING [22s]
+> root project > Resolve files of :classpath > repository-30.1.2.jarroject > Resolve dependencies of :classpath
+> root project > Resolve files of :classpath > builder-7.1.2.jarLE
+> root project > Resolve files of :classpath > repository-30.1.2.jar > 77.4 KiB
+> root project > Resolve files of :classpath > builder-7.1.2.jar > 84.3 KiB/12.
+> root project > Resolve files of :classpath > kotlin-stdlib-1.4.32.jar > 45.1 solve files of :classpath > sdk-common-30> root project > Resolve files of :classpath > builder-7.1.2.jar > 434.9 KiB/12solve files of :classpath > sdklib-30.1.2> root project > Resolve files of :classpath > kotlin-stdlib<-------------> 0% CONFIGURING [23s]lasspath > sdk-common-30> root project > Resolve files of :classpath > kotlin-stdlib-1.4.32.jar > 335.3solve files of :classpath > sdklib-30.1.2> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > kotlin-stdlib-1.4.32.jar > 855.4solve files of :classpath > manifest-merg> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > kotlin-stdlib-1.4.32.jar > 1.1 Msolve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > jose4j-0.7.0.jar > 84.1 KiB/259.solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > annotations-4.1.1.4.jar > 2 KiB/solve files of :classpath > txw2-2.3.2.ja> root project > Resolve files of :classpath > builder-7.1.2.jar > 1.7 MiB/12.3solve files of :classpath > opencensus-co> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > listenablefuture-9999.0-empty-to
+> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > grpc-context-1.21.1.jar
+> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > netty-codec-http-4.1.34.Final.jasolve files of :classpath > kotlin-stdlib> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > netty-transport-4.1.34.Final.jarsolve files of :classpath > netty-handler> root project > Resolve files of :classpath > builder-7.1.2<-------------> 0% CONFIGURING [24s]lasspath > jna-5.6.0.jar> root project > Resolve files of :classpath > netty-handler> root project > Resolve files of :classpath > builder-7.1.2.jar > 2.8 MiB/12.3solve files of :classpath > jna-5.6.0.jar> root project > Resolve files of :classpath > jackson-databind-2.11.1.jar > 22
+> root project > Resolve files of :classpath > builder-7.1.2.jar > 3 MiB/12.3 Msolve files of :classpath > apksig-7.1.2.> root project > Resolve files of :classpath > jackson-databind-2.11.1.jar > 51solve files of :classpath > netty-resolve> root project > Resolve files of :classpath > builder-7.1.2.jar > 3.2 MiB/12.3solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > jackson-databind-2.11.1.jar > 94solve files of :classpath > jackson-core-> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar
+7.1.2.jar
+> root project > Resolve files of :classpath > aaptcompiler-7.1.2.jar > 41.4 Kisolve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > aaptcompiler-> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 432 KiB/9solve files of :classpath > jna-5.6.0.jar> root project > Resolve files of :classpath > builder-7.1.2.jar > 3.9 MiB/12.3solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 496 KiB/9solve files of :classpath > antlr4-4.5.3.> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 656 KiB/9solve files of :classpath > ddmlib-30.1.2> root project > Resolve files of :classpath > builder-7.1.2<-------------> 0% CONFIGURING [25s]lasspath > jna-platform-> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 880 KiB/9solve files of :classpath > antlr4-4.5.3.> root project > Resolve files of :classpath > builder-7.1.2.jar > 4.5 MiB/12.3
+> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 1 MiB/9.1
+> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 1.3 MiB/9solve files of :classpath > signflinger-7> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 1.7 MiB/9solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 1.9 MiB/9solve files of :classpath > jna-platform-> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.1 MiB/9solve files of :classpath > databinding-c> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.3 MiB/9solve files of :classpath > crash-30.1.2.> root project > Resolve files of :classpath > builder-7.1.2.jar > 6.3 MiB/12.3solve files of :classpath > httpclient-4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.4 MiB/9solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.5 MiB/9solve files of :classpath > httpcore-4.4.> root project > Resolve files of :classpath > builder-7.1.2.jar > 6.7 MiB/12.3solve files of :classpath > xercesImpl-2.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.6 MiB/9solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > builder-7.1.2<-------------> 0% CONFIGURING [26s]lasspath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.8 MiB/9solve files of :classpath > baseLibrary-7> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 2.9 MiB/9solve files of :classpath > commons-compr> root project > Resolve files of :classpath > builder-7.1.2.jar > 7.4 MiB/12.3solve files of :classpath > xercesImpl-2.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 3 MiB/9.1solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > builder-7.1.2.jar > 7.5 MiB/12.3solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 3.2 MiB/9solve files of :classpath > android-devic> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 3.5 MiB/9solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > builder-7.1.2.jar > 8.1 MiB/12.3solve files of :classpath > jaxb-runtime-> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 3.7 MiB/9
+> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 3.9 MiB/9solve files of :classpath > bcpkix-jdk15o> root project > Resolve files of :classpath > builder-7.1.2.jar > 8.5 MiB/12.3solve files of :classpath > kotlin-reflec> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 4.1 MiB/9solve files of :classpath > gradle-7.1.2.> root project > Resolve files of :classpath > builder-7.1.2.jar > 8.7 MiB/12.3solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 4.3 MiB/9solve files of :classpath > jimfs-1.1.jar> root project > Resolve files of :classpath > builder-7.1.2.jar > 8.9 MiB/12.3solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 4.5 MiB/9
+> root project > Resolve files of :classpath > builder-7.1.2<-------------> 0% CONFIGURING [27s]lasspath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 4.7 MiB/9solve files of :classpath > grpc-stub-1.2> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 4.9 MiB/9solve files of :classpath > grpc-core-1.2> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 5.1 MiB/9solve files of :classpath > grpc-core-1.2> root project > Resolve files of :classpath > builder-7.1.2.jar > 9.8 MiB/12.3solve files of :classpath > guava-30.1-jr> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 5.2 MiB/9solve files of :classpath > bcprov-jdk15o> root project > Resolve files of :classpath > builder-7.1.2.jar > 10 MiB/12.3 solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 5.4 MiB/9solve files of :classpath > bcprov-jdk15o> root project > Resolve files of :classpath > builder-7.1.2.jar > 10.2 MiB/12.solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 5.5 MiB/9solve files of :classpath > bcprov-jdk15o> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 5.7 MiB/9solve files of :classpath > common-30.1.2> root project > Resolve files of :classpath > builder-7.1.2.jar > 10.7 MiB/12.solve files of :classpath > guava-30.1-jr> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 5.8 MiB/9
+> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 6 MiB/9.1solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > builder-7.1.2.jar > 11.2 MiB/12.solve files of :classpath > builder-model> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 6.2 MiB/9
+<-------------> 0% CONFIGURING [28s]lasspath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 6.4 MiB/9solve files of :classpath > android-test-> root project > Resolve files of :classpath > builder-7.1.2> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 6.5 MiB/9solve files of :classpath > protos-30.1.2> root project > Resolve files of :classpath > builder-7.1.2.jar > 12 MiB/12.3 solve files of :classpath > tink-1.3.0-rc> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 6.7 MiB/9solve files of :classpath > grpc-netty-1.> root project > Resolve files of :classpath > builder-7.1.2.jar > 12.2 MiB/12.solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 6.9 MiB/9solve files of :classpath > core-proto-0.> root project > Resolve files of :classpath > javapoet-1.10.0.jar > 4.7 KiB/95solve files of :classpath > fastutil-8.4.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 7.2 MiB/9solve files of :classpath > core-proto-0.> root project > Resolve files of :classpath > bundletool-1.8.0.jar > 7.8 MiB/9solve files of :classpath > protos-30.1.2
+[DEBUG]:   ebugM> Task :stripDebugDebugSymbols
+[DEBUG]:    MiB/Unable to strip the following libraries, packaging them as they are: libSDL2.so, libSDL2_image.so, libSDL2_mixer.so, libSDL2_ttf.so, libcrypto1.1.so, libffi.so, lib
+[DEBUG]:   ebugJ> Task :compileDebugJavaWithJavac
+[DEBUG]:   apt2ENote: Some input files use or override a deprecated API.
+[DEBUG]:
+[DEBUG]:        Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[DEBUG]:
+[DEBUG]:        You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+[DEBUG]:
+[DEBUG]:        See https://docs.gradle.org/7.4.1/userguide/command_line_interface.html#sec:command_line_warnings
+[DEBUG]:
+[DEBUG]:        BUILD SUCCESSFUL in 1m 34s
+[DEBUG]:        31 actionable tasks: 30 executed, 1 up-to-date
+
+[INFO]:    <- directory context /home/kouzimiso/.buildozer/android/platform/python-for-android
+[DEBUG]:   All possible dists: [<Distribution: name myapp with recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3)>]
+[DEBUG]:   Dist matching name and arch: [<Distribution: name myapp with recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3)>]
+[DEBUG]:   Dist matching ndk_api and recipe: [<Distribution: name myapp with recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3)>]
+[INFO]:    Of the existing distributions, the following meet the given requirements:
+[INFO]:         myapp: min API 21, includes recipes (hostpython3, libffi, openssl, sdl2_image, sdl2_mixer, sdl2_ttf, sqlite3, python3, sdl2, setuptools, six, pyjnius, android, kivy, idna, certifi, chardet, requests, urllib3), built for archs (arm64-v8a, armeabi-v7a)
+[INFO]:    myapp has compatible recipes, using this one
+[INFO]:    # Copying android package to current directory
+[INFO]:    # Android package filename not found in build output. Guessing...
+[INFO]:    # Found android package file: /home/kouzimiso/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/dists/myapp/build/outputs/apk/debug/myapp-debug.apk
+[INFO]:    # Add version number to android package
+[INFO]:    # Android package renamed to myapp-debug-0.1.apk
+[DEBUG]:   -> running cp /home/kouzimiso/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/dists/myapp/build/outputs/apk/debug/myapp-debug.apk myapp-debug-0.1.apk
+No setup.py/pyproject.toml used, copying full private data into .apk.
+Applying Java source code patches...
+Applying patch: src/patches/SDLActivity.java.patch
+# Copy /home/kouzimiso/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/dists/myapp/build/outputs/apk/debug/myapp-debug.apk to /home/kouzimiso/bin/myapp-0.1-arm64-v8a_armeabi-v7a-debug.apk
+# Android packaging done!
+# APK myapp-0.1-arm64-v8a_armeabi-v7a-debug.apk available in the bin directory
